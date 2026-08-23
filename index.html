@@ -24,7 +24,7 @@ body::-webkit-scrollbar{display:none;}
 .tag{color:var(--dim);font-size:.68rem;letter-spacing:1.5px;text-align:center;}
 .rule{width:60px;height:2px;margin:30px 0;background:var(--gold);}
 #treeArea{width:min(1100px,calc(100% - 28px))}
-.tier{display:flex;flex-direction:column;align-items:center;margin:80px 0;}
+.tier{display:flex;flex-direction:column;align-items:center;margin:60px 0;}
 .ttitle{color:#fff;font-size:.68rem;letter-spacing:5px;margin-bottom:20px;}
 .roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
 .person{width:180px;min-height:240px;padding:15px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);transition:.3s;}
@@ -35,7 +35,14 @@ body::-webkit-scrollbar{display:none;}
 .pname{font-size:.8rem;font-weight:700;}
 .phandle{font-size:.6rem;color:var(--dim);}
 .pstatus{color:var(--gold);font-size:.6rem;margin-top:4px;}
-.player{width:min(600px,calc(100% - 40px));margin:80px auto;padding:25px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);display:flex;gap:20px;align-items:center;}
+
+/* BAGONG ABOUT ME */
+.aboutme{width:min(500px,calc(100% - 40px));padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);text-align:center;transition:.3s;}
+.aboutme:hover{border-color:var(--gold);transform:translateY(-5px);}
+.aboutme-title{font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:12px;font-weight:700;}
+.aboutme-text{font-size:.7rem;color:var(--dim);line-height:1.6;}
+
+.player{width:min(600px,calc(100% - 40px));margin:60px auto;padding:25px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);display:flex;gap:20px;align-items:center;}
 .player-cover{width:90px;height:90px;border-radius:10px;overflow:hidden;border:2px solid var(--gold);}
 .player-cover img{width:100%;height:100%;object-fit:cover;}
 .player-info{flex:1;}
@@ -55,6 +62,7 @@ body::-webkit-scrollbar{display:none;}
 
 <div class="navdots">
 <div class="navdot active" data-target="exclusive"></div>
+<div class="navdot" data-target="about"></div>
 <div class="navdot" data-target="player"></div>
 </div>
 
@@ -78,6 +86,20 @@ body::-webkit-scrollbar{display:none;}
 </article>
 </div>
 </div>
+
+<!-- BAGONG ABOUT ME SECTION -->
+<div class="tier" id="about">
+<div class="ttitle">ABOUT ME</div>
+<div class="aboutme">
+<div class="aboutme-title">SPINBACK / WAY2IC</div>
+<div class="aboutme-text">
+Palitan mo to ng bio mo bobi<br>
+Hal: 18 | Caloocan | "exclusive owns u"<br>
+Gamer. Music. Night owl.
+</div>
+</div>
+</div>
+
 </section>
 
 <div class="player" id="player">
@@ -110,12 +132,12 @@ if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
 else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
 });
 
-// NAV DOTS - AYOS NA TO
+// NAV DOTS
 document.querySelectorAll('.navdot').forEach(dot=>{
 dot.addEventListener('click',()=>{
 document.getElementById(dot.dataset.target).scrollIntoView({behavior:'smooth'});
 });
-}); // <-- ITO YUNG KULANG KANINA
+});
 </script>
 </body>
 </html>
