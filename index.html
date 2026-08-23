@@ -7,7 +7,7 @@
 <link rel="icon" href="https://i.ibb.co/vCwwgQ2D/TRAP-removebg-preview.png">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
+:root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;}
 body{margin:0;min-height:100vh;overflow-x:hidden;overflow-y:scroll;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
@@ -81,7 +81,7 @@ body::-webkit-scrollbar{display:none;}
 </section>
 
 <div class="player" id="player">
-<div class="player-cover"><img src="https://i.imgur.com/1I3xiWj.jpeg"></div> <!-- BAGO NA COVER -->
+<div class="player-cover"><img src="https://i.imgur.com/1I3xiWj.jpeg"></div>
 <div class="player-info">
 <div class="player-title">DIE FOR ME</div>
 <div class="player-artist">CHASE ATLANTIC</div>
@@ -107,14 +107,15 @@ document.getElementById("playBtn").innerHTML = "⏸";
 
 document.getElementById("playBtn").addEventListener("click",function(){
 if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
-else{ audio.play(); this.innerHTML = "⏸"; isPlaying = true;}
+else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
 });
 
-// NAV DOTS
+// NAV DOTS - AYOS NA TO
 document.querySelectorAll('.navdot').forEach(dot=>{
 dot.addEventListener('click',()=>{
 document.getElementById(dot.dataset.target).scrollIntoView({behavior:'smooth'});
 });
+}); // <-- ITO YUNG KULANG KANINA
 </script>
 </body>
 </html>
