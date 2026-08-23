@@ -15,8 +15,13 @@ body::-webkit-scrollbar{display:none;}
 .bgvideo{position:fixed;top:50%;left:50%;z-index:-3;min-width:100%;min-height:100%;transform:translate(-50%,-50%) scale(1.1);object-fit:cover;filter:brightness(.28) saturate(.8) contrast(1.1) blur(1px);}
 .bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);}
-.gatebox{text-align:center;animation:fadeIn 1s ease;}
+.gatebox{text-align:center;animation:fadeIn 1s ease;display:flex;flex-direction:column;align-items:center;gap:25px;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+/* BAGONG GATE PIC */
+.gate-pic{width:140px;height:140px;border-radius:50%;border:3px solid var(--gold);overflow:hidden;box-shadow:0 0 30px rgba(212,175,55,.4);}
+.gate-pic img{width:100%;height:100%;object-fit:cover;}
+
 #gobtn{padding:16px 40px;color:#fff;border:2px solid #d4af37;border-radius:12px;background:rgba(212,175,55,.1);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.3s;}
 #gobtn:hover{background:#d4af37;color:#000;transform:scale(1.05);}
 .wrap{width:100%;display:flex;flex-direction:column;align-items:center;padding:40px 20px;opacity:0;pointer-events:none;transition:opacity.5s ease;}
@@ -39,8 +44,6 @@ body::-webkit-scrollbar{display:none;}
 .aboutme:hover{border-color:var(--gold);transform:translateY(-5px);}
 .aboutme-title{font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:12px;font-weight:700;}
 .aboutme-text{font-size:.7rem;color:var(--dim);line-height:1.6;}
-
-/* BAGONG PLAYER */
 .player-new{width:min(650px,calc(100% - 40px));margin:60px auto;padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,.13);background:rgba(10,10,12,.85);backdrop-filter:blur(20px);display:flex;gap:15px;align-items:center;}
 .player-cover{width:60px;height:60px;border-radius:8px;overflow:hidden;}
 .player-cover img{width:100%;height:100%;object-fit:cover;}
@@ -57,8 +60,6 @@ body::-webkit-scrollbar{display:none;}
 .progress-bar{height:100%;width:0%;background:var(--gold);border-radius:2px;transition:width 0.1s linear;}
 .vol-wrap{display:flex;align-items:center;gap:8px;}
 .vol-slider{width:80px;height:4px;background:rgba(255,255,255,.2);border-radius:2px;cursor:pointer;}
-
-/* BAGONG STATS WIDGET */
 .stats-widget{position:fixed;right:30px;bottom:30px;z-index:80;padding:12px 20px;border-radius:50px;border:1px solid rgba(255,255,255,.13);background:rgba(10,10,12,.85);backdrop-filter:blur(20px);display:flex;align-items:center;gap:15px;}
 .stat-item{display:flex;align-items:center;gap:8px;font-size:.8rem;}
 .stat-icon{font-size:1.2rem;}
@@ -67,7 +68,6 @@ body::-webkit-scrollbar{display:none;}
 .heart-btn{cursor:pointer;transition:.2s;}
 .heart-btn.liked{color:#ff0040;}
 .heart-btn:hover{transform:scale(1.2);}
-
 .navdots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;}
 .navdot.active{background:var(--gold);transform:scale(1.3);}
@@ -75,7 +75,7 @@ body::-webkit-scrollbar{display:none;}
 </head>
 <body>
 
-<img class="bgvideo" src="https://i.imgur.com/B5fWSD5.gif" alt="background">
+<img class="bgvideo" src="https://i.pinimg.com/originals/10/40/61/1040613057655618007.gif" alt="background">
 <div class="bgshade"></div>
 
 <div class="navdots">
@@ -83,7 +83,6 @@ body::-webkit-scrollbar{display:none;}
 <div class="navdot" data-target="about"></div>
 <div class="navdot" data-target="player"></div>
 </div>
-
 
 <div class="stats-widget">
 <div class="stat-item">
@@ -99,6 +98,10 @@ body::-webkit-scrollbar{display:none;}
 
 <div id="gate">
 <div class="gatebox">
+<!-- DINAGDAG NA PIC DITO -->
+<div class="gate-pic">
+<img src="https://i.imgur.com/I4ah3By.jpeg" alt="profile">
+</div>
 <button id="gobtn">die w me.</button>
 </div>
 </div>
@@ -106,7 +109,6 @@ body::-webkit-scrollbar{display:none;}
 <main class="wrap">
 <p class="tag">“exclusive.”</p>
 <div class="rule"></div>
-
 <section id="treeArea">
 <div class="tier" id="exclusive">
 <div class="ttitle">EXCLUSIVE</div>
@@ -117,7 +119,6 @@ body::-webkit-scrollbar{display:none;}
 </article>
 </div>
 </div>
-
 <div class="tier" id="about">
 <div class="ttitle">ABOUT ME</div>
 <div class="aboutme">
@@ -129,9 +130,7 @@ revshit
 </div>
 </div>
 </div>
-
 </section>
-
 <div class="player-new" id="player">
 <div class="player-cover"><img src="https://i.imgur.com/1I3xiWj.jpeg"></div>
 <div class="player-main">
@@ -154,7 +153,6 @@ revshit
 </div>
 </div>
 </div>
-
 </main>
 
 <script>
@@ -169,12 +167,10 @@ var views = localStorage.getItem('siteViews') || 0;
 views++;
 localStorage.setItem('siteViews', views);
 document.getElementById('viewCount').innerText = views;
-
 var likes = localStorage.getItem('siteLikes') || 0;
 var liked = localStorage.getItem('liked') === 'true';
 document.getElementById('likeCount').innerText = likes;
 if(liked){document.getElementById('likeBtn').innerHTML='♥';document.getElementById('likeBtn').classList.add('liked');}
-
 document.getElementById('likeBtn').addEventListener('click',function(){
 if(!liked){likes++; liked=true; this.innerHTML='♥'; this.classList.add('liked');}
 else{likes--; liked=false; this.innerHTML='♡'; this.classList.remove('liked');}
@@ -188,36 +184,31 @@ document.getElementById("gate").style.display="none";
 document.querySelector(".wrap").classList.add("show");
 audio.play().catch(()=>{});
 });
-
 document.getElementById("playBtn").addEventListener("click",function(){
 if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
 else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
 });
-
 document.getElementById("stopBtn").addEventListener("click",function(){
 audio.pause(); audio.currentTime = 0; document.getElementById("playBtn").innerHTML = "▶"; isPlaying = false;
 });
-
 document.getElementById("volSlider").addEventListener("input",function(){
 audio.volume = this.value;
 });
-
 audio.addEventListener('timeupdate',()=>{
 var progress = (audio.currentTime / audio.duration) * 100;
 document.getElementById("progressBar").style.width = progress + '%';
 });
-
 document.getElementById("progressWrap").addEventListener('click',(e)=>{
 var width = e.currentTarget.clientWidth;
 var clickX = e.offsetX;
 var duration = audio.duration;
 audio.currentTime = (clickX / width) * duration;
 });
-
 // NAV DOTS
 document.querySelectorAll('.navdot').forEach(dot=>{
 dot.addEventListener('click',()=>{
 document.getElementById(dot.dataset.target).scrollIntoView({behavior:'smooth'});
+});
 });
 </script>
 </body>
