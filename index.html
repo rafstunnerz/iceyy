@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXCLUSIVE</title>
+<link rel="icon" href="https://i.ibb.co/vCwwgQ2D/TRAP-removebg-preview.png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;}
+body{margin:0;min-height:100vh;overflow-x:hidden;overflow-y:scroll;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
+body::-webkit-scrollbar{display:none;}
+.bgvideo{position:fixed;top:50%;left:50%;z-index:-3;min-width:100%;min-height:100%;transform:translate(-50%,-50%) scale(1.1);object-fit:cover;filter:brightness(.28) saturate(.8) contrast(1.1) blur(1px);}
+.bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
+#gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);}
+.gatebox{text-align:center;animation:fadeIn 1s ease;}
+@keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+#gobtn{padding:16px 40px;color:#fff;border:2px solid #d4af37;border-radius:12px;background:rgba(212,175,55,.1);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.3s;}
+#gobtn:hover{background:#d4af37;color:#000;transform:scale(1.05);}
+.wrap{width:100%;display:flex;flex-direction:column;align-items:center;padding:40px 20px;opacity:0;pointer-events:none;transition:opacity.5s ease;}
+.wrap.show{opacity:1;pointer-events:auto;}
+.tag{color:var(--dim);font-size:.68rem;letter-spacing:1.5px;text-align:center;}
+.rule{width:60px;height:2px;margin:30px 0;background:var(--gold);}
+#treeArea{width:min(1100px,calc(100% - 28px))}
+.tier{display:flex;flex-direction:column;align-items:center;margin-bottom:28px;}
+.ttitle{color:#fff;font-size:.68rem;letter-spacing:5px;margin-bottom:20px;}
+.roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.person{width:154px;min-height:210px;padding:12px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);transition:.3s;}
+.person:hover{border-color:var(--gold);transform:translateY(-5px);}
+.pface{width:94px;height:94px;margin:0 auto;border-radius:50%;overflow:hidden;border:2px solid rgba(212,175,55,.3);}
+.pface img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.pplacard{margin-top:8px;padding:8px;border:1px solid rgba(220,210,255,.14);border-radius:9px;background:rgba(255,255,255,.07);text-align:center;}
+.pname{font-size:.76rem;font-weight:700;}
+.phandle{font-size:.57rem;color:var(--dim);}
+.pstatus{color:var(--gold);font-size:.55rem;margin-top:4px;}
+.player{width:min(600px,calc(100% - 40px));margin:40px auto;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);display:flex;gap:20px;align-items:center;}
+.player-cover{width:80px;height:80px;border-radius:8px;overflow:hidden;border:2px solid var(--gold);}
+.player-cover img{width:100%;height:100%;object-fit:cover;}
+.player-info{flex:1;}
+.player-title{font-size:.9rem;font-weight:700;}
+.player-artist{font-size:.7rem;color:var(--dim);margin-bottom:10px;}
+.player-btn{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--ink);width:36px;height:36px;border-radius:6px;cursor:pointer;transition:.2s;}
+.player-btn:hover{background:var(--gold);color:#000;}
+.affiliates{width:min(700px,calc(100% - 40px));margin:30px auto;display:flex;flex-direction:column;align-items:center;gap:18px;}
+.aff-title{color:#fff;font-size:.68rem;letter-spacing:5px;}
+.aff-roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.aff-person{width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);transition:.3s;}
+.aff-person:hover{border-color:var(--gold);transform:scale(1.05);}
+.aff-person img{width:100%;height:100%;object-fit:cover;}
+.navdots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px;}
+.navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;}
+.navdot.active{background:var(--gold);transform:scale(1.3);}
+</style>
+</head>
+<body>
+
+<img class="bgvideo" src="https://i.imgur.com/UIcCDTo.gif" alt="background">
+<div class="bgshade"></div>
+
+<div class="navdots">
+<div class="navdot active" data-target="exclusive"></div>
+<div class="navdot" data-target="luvones"></div>
+<div class="navdot" data-target="player"></div>
+<div class="navdot" data-target="affiliates"></div>
+</div>
+
+<div id="gate">
+<div class="gatebox">
+<button id="gobtn">Sa ngalan ng Exclusive. Amen.</button>
+</div>
+</div>
+
+<main class="wrap">
+<p class="tag">“exclusive owns u.”</p>
+<div class="rule"></div>
+
+<section id="treeArea">
+<div class="tier" id="exclusive">
+<div class="ttitle">EXCLUSIVE | REVSHIT</div>
+<div class="roster">
+<article class="person">
+<div class="pface"><img src="https://i.imgur.com/M1ftfV8.jpeg"></div>
+<div class="pplacard"><div class="pname">SPINBACK/WAY2IC</div><div class="phandle">@icey.666</div><div class="pstatus">Online</div></div>
+</article>
+</div>
+</div>
+
+<div class="tier" id="luvones">
+<div class="ttitle">LUVONES</div>
+<div class="roster">
+<article class="person">
+<div class="pface"><img src="https://i.imgur.com/WKC5krx.jpeg"></div>
+<div class="pplacard"><div class="pname">nicolez</div><div class="phandle">@loczzzz</div><div class="pstatus">Online</div></div>
+</article>
+<article class="person">
+<div class="pface"><img src="https://i.imgur.com/I2qmINA.jpeg"></div>
+<div class="pplacard"><div class="pname">/vera</div><div class="phandle">@kiki</div><div class="pstatus">Online</div></div>
+</article>
+<article class="person">
+<div class="pface"><img src="https://i.imgur.com/97T8keB.jpeg"></div>
+<div class="pplacard"><div class="pname">seb</div><div class="phandle">@sebvsall</div><div class="pstatus">Online</div></div>
+</article>
+<article class="person">
+<div class="pface"><img src="https://i.imgur.com/sel8bty.jpeg"></div>
+<div class="pplacard"><div class="pname">ayokosabobo</div><div class="phandle">@deleted_user124211321215</div><div class="pstatus">Online</div></div>
+</article>
+</div>
+</div>
+</section>
+
+<div class="player" id="player">
+<div class="player-cover"><img src="https://i.imgur.com/yUP4suK.jpeg"></div>
+<div class="player-info">
+<div class="player-title">DIE FOR ME</div>
+<div class="player-artist">CHASE ATLANTIC</div>
+<button class="player-btn" id="playBtn">⏸</button>
+</div>
+</div>
+
+<div class="affiliates" id="affiliates">
+<div class="aff-title">AFFILIATES</div>
+<div class="aff-roster">
+<div class="aff-person"><img src="https://i.imgur.com/BPQlx8m.jpeg"></div>
+<div class="aff-person"><img src="https://i.imgur.com/h3Utj0q.jpeg"></div>
+<div class="aff-person"><img src="https://i.imgur.com/Nvl0jOV.jpeg"></div>
+<div class="aff-person"><img src="https://i.imgur.com/DwxhEV0.jpeg"></div>
+</div>
+</div>
+
+</main>
+
+<script>
+var audio = new Audio();
+audio.src = "./Chase Atlantic - DIE FOR ME (Official Lyric Video) (2).mp3"; // <-- MATCH SA FILE MO
+audio.volume = 0.6;
+audio.loop = true;
+var isPlaying = true;
+
+document.getElementById("gobtn").addEventListener("click",function(){
+document.getElementById("gate").style.display="none";
+document.querySelector(".wrap").classList.add("show");
+audio.play().catch(()=>{});
+document.getElementById("playBtn").innerHTML = "⏸";
+});
+
+document.getElementById("playBtn").addEventListener("click",function(){
+if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
+else{ audio.play(); this.innerHTML = "⏸"; isPlaying = true;}
+});
+
+// NAV DOTS SCROLL
+document.querySelectorAll('.navdot').forEach(dot=>{
+dot.addEventListener('click',()=>{
+document.getElementById(dot.dataset.target).scrollIntoView({behavior:'smooth'});
+});
+});
+</script>
+</body>
+</html>
