@@ -19,14 +19,17 @@ body::-webkit-scrollbar{display:none;}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);}
 .gatebox{text-align:center;animation:fadeIn 1s ease;display:flex;flex-direction:column;align-items:center;gap:30px;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-.gate-pic{width:300px;height:300px;overflow:hidden;border-radius:0;border:none;}
+
+/* BAGONG INTRO GIF */
+.gate-pic{width:300px;height:300px;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.13);}
 .gate-pic img{width:100%;height:100%;object-fit:cover;}
+
 #gobtn{padding:16px 40px;color:#fff;border:2px solid #d4af37;border-radius:12px;background:rgba(212,175,55,.1);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.3s;}
 #gobtn:hover{background:#d4af37;color:#000;transform:scale(1.05);}
 
-/* 3 COLUMN LAYOUT */
-.main-container{display:flex;justify-content:center;align-items:flex-start;gap:25px;width:100%;padding:40px 20px;}
-.wrap{width:min(700px,100%);display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .5s ease;}
+/* WRAPPER NA RELATIVE PARA SA ABSOLUTE GIFS */
+.page-wrapper{position:relative;width:100%;display:flex;justify-content:center;}
+.wrap{width:min(700px,calc(100% - 40px));margin:40px auto;display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .5s ease;}
 .wrap.show{opacity:1;pointer-events:auto;}
 .tag{color:var(--dim);font-size:.68rem;letter-spacing:1.5px;text-align:center;}
 .rule{width:60px;height:2px;margin:30px 0;background:var(--gold);}
@@ -66,38 +69,37 @@ body::-webkit-scrollbar{display:none;}
 .progress-wrap{width:100%;height:5px;background:rgba(255,255,255,.2);border-radius:3px;cursor:pointer;margin:12px 0;}
 .progress-bar{height:100%;width:0%;background:var(--gold);border-radius:3px;transition:width 0.1s linear;}
 
-/* SIDE GIFS - STICKY NA HINDI SUMUSUNOD */
-.side-column{width:260px;position:sticky;top:100px;height:fit-content;}
-.side-gif{width:100%;height:260px;border-radius:14px;overflow:hidden;background:rgba(5,5,7,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13);margin-bottom:20px;}
+/* SIDE GIFS - ABSOLUTE NA HINDI GAGALAW */
+.side-gif{position:absolute;top:120px;width:260px;height:260px;border-radius:14px;overflow:hidden;background:rgba(5,5,7,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13);z-index:80;}
+.side-gif.left{left:calc(50% - 700px/2 - 260px - 25px);}
+.side-gif.right{right:calc(50% - 700px/2 - 260px - 25px);}
 .side-gif img{width:100%;height:100%;object-fit:cover;}
 
 .navdots{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);z-index:90;display:flex;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;}
 .navdot.active{background:var(--gold);transform:scale(1.3);}
 
-@media(max-width:1200px){
-  .side-column{display:none;}
-  .main-container{padding:40px 20px;}
+@media(max-width:1400px){
+  .side-gif{display:none;}
 }
 </style>
 </head>
 <body>
-<img class="bgvideo" src="https://i.imgur.com/OnZvF3J.gif" alt="background">
+<img class="bgvideo" src="https://i.imgur.com/OnZvF3J.jpeg" alt="background">
 <div class="bgshade"></div>
 
 <div id="gate">
   <div class="gatebox">
-    <div class="gate-pic"><img src="https://i.imgur.com/I4ah3By.jpeg" alt="profile"></div>
+    <!-- BAGONG INTRO GIF -->
+    <div class="gate-pic"><img src="https://i.imgur.com/eyzEEe8.gif" alt="intro"></div>
     <button id="gobtn">die w me.</button>
   </div>
 </div>
 
-<div class="main-container">
-  <!-- LEFT GIF - NAKADIKIT NA -->
-  <div class="side-column">
-    <div class="side-gif">
-      <img src="https://i.imgur.com/ERCSijK.gif" alt="left gif">
-    </div>
+<div class="page-wrapper">
+  <!-- LEFT GIF - ABSOLUTE -->
+  <div class="side-gif left">
+    <img src="https://i.imgur.com/ERCSijK.gif" alt="left gif">
   </div>
 
   <!-- CENTER CONTENT -->
@@ -139,11 +141,9 @@ body::-webkit-scrollbar{display:none;}
     </div>
   </main>
 
-  <!-- RIGHT GIF - NAKADIKIT NA -->
-  <div class="side-column">
-    <div class="side-gif">
-      <img src="https://i.imgur.com/wEp19a1.gif" alt="right gif">
-    </div>
+  <!-- RIGHT GIF - ABSOLUTE -->
+  <div class="side-gif right">
+    <img src="https://i.imgur.com/wEp19a1.gif" alt="right gif">
   </div>
 </div>
 
