@@ -32,14 +32,17 @@ body::-webkit-scrollbar{display:none;}
 .tier{display:flex;flex-direction:column;align-items:center;margin:60px 0;}
 .ttitle{color:#fff;font-size:.68rem;letter-spacing:5px;margin-bottom:20px;}
 .roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
-.person{width:180px;min-height:240px;padding:15px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);transition:.3s;}
+
+/* PINALAKI SI ICEY */
+.person{width:210px;min-height:270px;padding:18px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);transition:.3s;}
 .person:hover{border-color:var(--gold);transform:translateY(-8px);}
-.pface{width:140px;height:140px;margin:0 auto;border-radius:50%;overflow:hidden;border:3px solid rgba(212,175,55,.3);}
+.pface{width:160px;height:160px;margin:0 auto;border-radius:50%;overflow:hidden;border:3px solid rgba(212,175,55,.3);}
 .pface img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.pplacard{margin-top:10px;padding:10px;border:1px solid rgba(220,210,255,.14);border-radius:9px;background:rgba(255,255,255,.07);text-align:center;}
-.pname{font-size:.8rem;font-weight:700;}
-.phandle{font-size:.6rem;color:var(--dim);}
-.pstatus{color:var(--gold);font-size:.6rem;margin-top:4px;}
+.pplacard{margin-top:12px;padding:12px;border:1px solid rgba(220,210,255,.14);border-radius:9px;background:rgba(255,255,255,.07);text-align:center;}
+.pname{font-size:.9rem;font-weight:700;}
+.phandle{font-size:.65rem;color:var(--dim);}
+.pstatus{color:var(--gold);font-size:.65rem;margin-top:4px;}
+
 .aboutme{width:100%;padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);text-align:center;transition:.3s;}
 .aboutme:hover{border-color:var(--gold);transform:translateY(-5px);}
 .aboutme-title{font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:12px;font-weight:700;}
@@ -61,17 +64,17 @@ body::-webkit-scrollbar{display:none;}
 .progress-wrap{width:100%;height:5px;background:rgba(255,255,255,.2);border-radius:3px;cursor:pointer;margin:12px 0;}
 .progress-bar{height:100%;width:0%;background:var(--gold);border-radius:3px;transition:width 0.1s linear;}
 
-/* SIDE GIFS */
-.side-gif{position:fixed;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:14px;overflow:hidden;background:rgba(5,5,7,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13);z-index:80;}
-.side-gif.left{left:20px;}
-.side-gif.right{right:20px;}
+/* PINALAKI YUNG 2 SIDE GIFS */
+.side-gif{position:fixed;top:50%;transform:translateY(-50%);width:260px;height:260px;border-radius:14px;overflow:hidden;background:rgba(5,5,7,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13);z-index:80;}
+.side-gif.left{left:15px;}
+.side-gif.right{right:15px;}
 .side-gif img{width:100%;height:100%;object-fit:cover;}
 
 .navdots{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);z-index:90;display:flex;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;}
 .navdot.active{background:var(--gold);transform:scale(1.3);}
 
-@media(max-width:1100px){
+@media(max-width:1200px){
   .side-gif{display:none;}
 }
 </style>
