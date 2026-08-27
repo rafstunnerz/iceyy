@@ -16,13 +16,14 @@ body::-webkit-scrollbar{display:none;}
 @keyframes bgMove{0%{transform:translate(-50%,-50%) scale(1.1) rotate(0deg);}100%{transform:translate(-50%,-50%) scale(1.15) rotate(1deg);}}
 .bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
 
-#gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.9);backdrop-filter:blur(15px);cursor:pointer;}
+#gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(0,0,0,.85);backdrop-filter:blur(20px);cursor:pointer;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 
-.gate-pic{width:320px;height:320px;overflow:hidden;border-radius:0;border:none;}
-.gate-pic img{width:100%;height:100%;object-fit:cover;transition:.3s;}
-.gate-pic img:hover{transform:scale(1.03);}
+/* PURE GIF LANG WALANG BOX */
+.gate-pic{width:350px;height:350px;}
+.gate-pic img{width:100%;height:100%;object-fit:cover;transition:.4s;filter:drop-shadow(0 0 20px rgba(0,0,0,.5));}
+.gate-pic img:hover{transform:scale(1.05);filter:drop-shadow(0 0 30px rgba(212,175,55,.3));}
 
 .page-wrapper{position:relative;width:100%;display:flex;justify-content:center;}
 .wrap{width:min(700px,calc(100% - 40px));margin:40px auto;display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .5s ease;}
