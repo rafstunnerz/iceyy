@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GOD'S FAVORITE</title>
-<link rel="icon" href="https://i.imgur.com/uUfpcQl.png">
+<link rel="icon" href="https://i.ibb.co/vCwwgQ2D/TRAP-removebg-preview.png">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;}
@@ -15,11 +15,16 @@ body::-webkit-scrollbar{display:none;}
 .bgvideo{position:fixed;top:50%;left:50%;z-index:-3;min-width:100%;min-height:100%;transform:translate(-50%,-50%) scale(1.1);object-fit:cover;filter:brightness(.25) saturate(.9) contrast(1.1) blur(0.5px);animation:bgMove 20s ease-in-out infinite alternate;}
 @keyframes bgMove{0%{transform:translate(-50%,-50%) scale(1.1) rotate(0deg);}100%{transform:translate(-50%,-50%) scale(1.15) rotate(1deg);}}
 .bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
+
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(0,0,0,.85);backdrop-filter:blur(20px);cursor:pointer;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+/* PURE GIF LANG WALANG BOX */
 .gate-pic{width:350px;height:350px;}
-.gate-pic img{width:100%;height:100%;object-fit:cover;}
+.gate-pic img{width:100%;height:100%;object-fit:cover;transition:.4s;filter:drop-shadow(0 0 20px rgba(0,0,0,.5));}
+.gate-pic img:hover{transform:scale(1.05);filter:drop-shadow(0 0 30px rgba(212,175,55,.3));}
+
 .page-wrapper{position:relative;width:100%;display:flex;justify-content:center;}
 .wrap{width:min(700px,calc(100% - 40px));margin:40px auto;display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .5s ease;}
 .wrap.show{opacity:1;pointer-events:auto;}
@@ -29,6 +34,7 @@ body::-webkit-scrollbar{display:none;}
 .tier{display:flex;flex-direction:column;align-items:center;margin:60px 0;}
 .ttitle{color:#fff;font-size:.68rem;letter-spacing:5px;margin-bottom:20px;}
 .roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+
 .person{width:210px;min-height:270px;padding:18px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);transition:.3s;}
 .person:hover{border-color:var(--gold);transform:translateY(-8px);}
 .pface{width:160px;height:160px;margin:0 auto;border-radius:50%;overflow:hidden;border:3px solid rgba(212,175,55,.3);}
@@ -37,10 +43,12 @@ body::-webkit-scrollbar{display:none;}
 .pname{font-size:.9rem;font-weight:700;}
 .phandle{font-size:.65rem;color:var(--dim);}
 .pstatus{color:var(--gold);font-size:.65rem;margin-top:4px;}
+
 .aboutme{width:100%;padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);text-align:center;transition:.3s;}
-.aboutme:hover{border-color:var(--gold);transform:translate-8px;}
+.aboutme:hover{border-color:var(--gold);transform:translateY(-5px);}
 .aboutme-title{font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:12px;font-weight:700;}
 .aboutme-text{font-size:.7rem;color:var(--dim);line-height:1.6;}
+
 .player-new{width:100%;margin:60px 0;padding:25px;border-radius:18px;border:1px solid rgba(255,255,255,.13);background:rgba(10,10,12,.85);backdrop-filter:blur(20px);display:flex;gap:20px;align-items:center;}
 .player-cover{width:80px;height:80px;border-radius:10px;overflow:hidden;}
 .player-cover img{width:100%;height:100%;object-fit:cover;}
@@ -55,13 +63,16 @@ body::-webkit-scrollbar{display:none;}
 .play-pause:hover{transform:scale(1.1);}
 .progress-wrap{width:100%;height:5px;background:rgba(255,255,255,.2);border-radius:3px;cursor:pointer;margin:12px 0;}
 .progress-bar{height:100%;width:0%;background:var(--gold);border-radius:3px;transition:width 0.1s linear;}
+
 .side-gif{position:absolute;top:120px;width:260px;height:260px;border-radius:14px;overflow:hidden;background:rgba(5,5,7,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13);z-index:80;}
 .side-gif.left{left:calc(50% - 700px/2 - 260px - 25px);}
 .side-gif.right{right:calc(50% - 700px/2 - 260px - 25px);}
 .side-gif img{width:100%;height:100%;object-fit:cover;}
+
 .navdots{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);z-index:90;display:flex;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;}
 .navdot.active{background:var(--gold);transform:scale(1.3);}
+
 @media(max-width:1400px){
   .side-gif{display:none;}
 }
@@ -70,15 +81,18 @@ body::-webkit-scrollbar{display:none;}
 <body>
 <img class="bgvideo" src="https://i.imgur.com/OnZvF3J.jpeg" alt="background">
 <div class="bgshade"></div>
+
 <div id="gate">
   <div class="gatebox">
     <div class="gate-pic"><img src="https://i.imgur.com/eyzEEe8.gif" alt="intro"></div>
   </div>
 </div>
+
 <div class="page-wrapper">
   <div class="side-gif left">
     <img src="https://i.imgur.com/ERCSijK.gif" alt="left gif">
   </div>
+
   <main class="wrap">
     <p class="tag">“exclusive.”</p>
     <div class="rule"></div>
@@ -116,15 +130,18 @@ body::-webkit-scrollbar{display:none;}
       </div>
     </div>
   </main>
+
   <div class="side-gif right">
     <img src="https://i.imgur.com/wEp19a1.gif" alt="right gif">
   </div>
 </div>
+
 <div class="navdots">
   <div class="navdot active" data-target="exclusive"></div>
   <div class="navdot" data-target="about"></div>
   <div class="navdot" data-target="player"></div>
 </div>
+
 <script>
 var audio = new Audio();
 audio.src = "./Chase Atlantic - DIE FOR ME (Official Lyric Video) (2).mp3";
@@ -135,29 +152,24 @@ var isPlaying = true;
 document.getElementById("gate").addEventListener("click",function(){
   document.getElementById("gate").style.display="none";
   document.querySelector(".wrap").classList.add("show");
-  audio.play().catch(()=>{console.log("audio error")});
+  audio.play().catch(()=>{});
 });
 
-var playBtn = document.getElementById("playBtn");
-if(playBtn){
-  playBtn.addEventListener("click",function(){
-    if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
-    else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
-  });
-}
+document.getElementById("playBtn").addEventListener("click",function(){
+  if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
+  else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
+});
 
 audio.addEventListener('timeupdate',()=>{
-  if(audio.duration){
-    var progress = (audio.currentTime / audio.duration) * 100;
-    document.getElementById("progressBar").style.width = progress + '%';
-  }
+  var progress = (audio.currentTime / audio.duration) * 100;
+  document.getElementById("progressBar").style.width = progress + '%';
 });
 
 document.getElementById("progressWrap").addEventListener('click',(e)=>{
   var width = e.currentTarget.clientWidth;
   var clickX = e.offsetX;
   var duration = audio.duration;
-  if(duration) audio.currentTime = (clickX / width) * duration;
+  audio.currentTime = (clickX / width) * duration;
 });
 
 document.querySelectorAll('.navdot').forEach(dot=>{
