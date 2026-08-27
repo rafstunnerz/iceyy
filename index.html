@@ -18,10 +18,8 @@ body::-webkit-scrollbar{display:none;}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(0,0,0,.85);backdrop-filter:blur(20px);cursor:pointer;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-
 .gate-pic{width:350px;height:350px;}
-.gate-pic img{width:100%;height:100%;object-fit:cover;} /* TINANGGAL KO NA HOVER AT FILTER */
-
+.gate-pic img{width:100%;height:100%;object-fit:cover;}
 .page-wrapper{position:relative;width:100%;display:flex;justify-content:center;}
 .wrap{width:min(700px,calc(100% - 40px));margin:40px auto;display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .5s ease;}
 .wrap.show{opacity:1;pointer-events:auto;}
@@ -108,7 +106,7 @@ body::-webkit-scrollbar{display:none;}
         <div class="player-top">
           <div class="player-info">
             <div class="player-title">DIE FOR ME</div>
-            < <div class="player-artist">CHASE ATLANTIC</div>
+            <div class="player-artist">CHASE ATLANTIC</div>
           </div>
         </div>
         <div class="progress-wrap" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
@@ -133,24 +131,30 @@ audio.src = "./Chase Atlantic - DIE FOR ME (Official Lyric Video) (2).mp3";
 audio.volume = 0.6;
 audio.loop = true;
 var isPlaying = true;
+
 document.getElementById("gate").addEventListener("click",function(){
   document.getElementById("gate").style.display="none";
   document.querySelector(".wrap").classList.add("show");
   audio.play().catch(()=>{});
+}); // DITO KULANG YUNG } KANINA
+
 document.getElementById("playBtn").addEventListener("click",function(){
   if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
   else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
 });
+
 audio.addEventListener('timeupdate',()=>{
   var progress = (audio.currentTime / audio.duration) * 100;
   document.getElementById("progressBar").style.width = progress + '%';
 });
+
 document.getElementById("progressWrap").addEventListener('click',(e)=>{
   var width = e.currentTarget.clientWidth;
   var clickX = e.offsetX;
   var duration = audio.duration;
   audio.currentTime = (clickX / width) * duration;
 });
+
 document.querySelectorAll('.navdot').forEach(dot=>{
   dot.addEventListener('click',()=>{
     document.getElementById(dot.dataset.target).scrollIntoView({behavior:'smooth'});
