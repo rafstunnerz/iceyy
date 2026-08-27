@@ -38,7 +38,7 @@ body::-webkit-scrollbar{display:none;}
 .phandle{font-size:.65rem;color:var(--dim);}
 .pstatus{color:var(--gold);font-size:.65rem;margin-top:4px;}
 .aboutme{width:100%;padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);text-align:center;transition:.3s;}
-.aboutme:hover{border-color:var(--gold);transform:translateY(-5px);}
+.aboutme:hover{border-color:var(--gold);transform:translate-8px;}
 .aboutme-title{font-size:.75rem;letter-spacing:3px;color:var(--gold);margin-bottom:12px;font-weight:700;}
 .aboutme-text{font-size:.7rem;color:var(--dim);line-height:1.6;}
 .player-new{width:100%;margin:60px 0;padding:25px;border-radius:18px;border:1px solid rgba(255,255,255,.13);background:rgba(10,10,12,.85);backdrop-filter:blur(20px);display:flex;gap:20px;align-items:center;}
@@ -135,24 +135,29 @@ var isPlaying = true;
 document.getElementById("gate").addEventListener("click",function(){
   document.getElementById("gate").style.display="none";
   document.querySelector(".wrap").classList.add("show");
-  audio.play().catch(()=>{});
-}); // DITO KULANG YUNG } KANINA
-
-document.getElementById("playBtn").addEventListener("click",function(){
-  if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
-  else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
+  audio.play().catch(()=>{console.log("audio error")});
 });
 
+var playBtn = document.getElementById("playBtn");
+if(playBtn){
+  playBtn.addEventListener("click",function(){
+    if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
+    else{ audio.play().catch(()=>{}); this.innerHTML = "⏸"; isPlaying = true;}
+  });
+}
+
 audio.addEventListener('timeupdate',()=>{
-  var progress = (audio.currentTime / audio.duration) * 100;
-  document.getElementById("progressBar").style.width = progress + '%';
+  if(audio.duration){
+    var progress = (audio.currentTime / audio.duration) * 100;
+    document.getElementById("progressBar").style.width = progress + '%';
+  }
 });
 
 document.getElementById("progressWrap").addEventListener('click',(e)=>{
   var width = e.currentTarget.clientWidth;
   var clickX = e.offsetX;
   var duration = audio.duration;
-  audio.currentTime = (clickX / width) * duration;
+  if(duration) audio.currentTime = (clickX / width) * duration;
 });
 
 document.querySelectorAll('.navdot').forEach(dot=>{
